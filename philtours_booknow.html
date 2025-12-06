@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title shown in browser tab -->
+    <title>Book Now - PhilTours</title>
+    
+    <!-- Link to main CSS stylesheet -->
+    <link rel="stylesheet" href="philtours_main.css">
+    
+    <!-- Link to book now page specific styles -->
+    <link rel="stylesheet" href="philtours_booknow.css">
+    
+    <!-- Browser tab icon -->
+    <link rel="icon" type="image/jpg" href="images\TRAVEL.png">
+</head>
+<body>
+    <!-- ===== SVG ICON LIBRARY ===== -->
+    <!-- These are reusable icons embedded as SVG symbols -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <!-- Menu icon (hamburger menu) -->
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </symbol>
+    </svg>
+
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav>
+      <div class="logo">
+        <img src="images\TRAVEL.png" alt="PhilTours Logo" class="logo-image">
+        <span>PhilTours</span>
+      </div>
+      <div class="nav-divider"></div>
+      <a href="philtours_main.html">HOME</a>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown">
+        <a href="philtours_booknow.html">BOOK NOW ▼</a>
+        <div class="dropdown-content">
+          <a href="luzon_region.html">Luzon</a>
+          <a href="visayas_region.html">Visayas</a>
+          <a href="mindanao_region.html">Mindanao</a>
+        </div>
+      </div>
+
+      <a href="contact_us.html">CONTACT US</a>
+    </nav>
+
+    <!-- ===== Book Now Hero Section ===== -->
+    <!-- Heading and introduction -->
+    <section class="book-hero">
+      <h1>Choose Your Destination</h1>
+      <p>Explore the beauty of the Philippines across three major island groups. Select your preferred region to begin your unforgettable journey.</p>
+    </section>
+
+    <!-- ===== Region Cards ===== -->
+    <!-- Three major regions: Luzon, Visayas, Mindanao -->
+    <section class="regions-section">
+      <div class="regions-grid">
+        <!-- Luzon Card -->
+        <div class="region-card">
+          <div class="region-image">
+            <img src="https://i.pinimg.com/736x/01/34/9d/01349d8b69f0a9419143f5d76ac21f3f.jpg" alt="Luzon Region">
+          </div>
+          <div class="region-content">
+            <h3>Luzon</h3>
+            <p>Experience the vibrant capital region and pristine northern beaches. From Manila's bustling streets to Boracay's crystal-clear waters and the rice terraces of Banaue, Luzon offers a perfect blend of urban energy and natural wonder.</p>
+            <ul class="region-highlights">
+              <li>Manila - Capital City</li>
+              <li>Boracay - World-Class Beaches</li>
+              <li>Banaue - Rice Terraces</li>
+              <li>Subic - Beach Resorts</li>
+            </ul>
+            <a href="http://127.0.0.1:5501/luzon_region.html"> <button class="book-region-btn">Book Luzon Tour</button></a>
+           
+          </div>
+        </div>
+
+        <!-- Visayas Card -->
+        <div class="region-card">
+          <div class="region-image">
+            <img src="https://i.pinimg.com/736x/ab/e2/a7/abe2a74b90ec5aa71a0e81a25ab9877e.jpg" alt="Visayas Region">
+          </div>
+          <div class="region-content">
+            <h3>Visayas</h3>
+            <p>Discover the heart of the Philippines with its stunning islands and vibrant culture. The Visayas region is home to the iconic Chocolate Hills, world-renowned diving spots, and charming island communities that showcase authentic Filipino hospitality.</p>
+            <ul class="region-highlights">
+              <li>Bohol - Chocolate Hills</li>
+              <li>Cebu - Diving Paradise</li>
+              <li>Iloilo - Cultural Heritage</li>
+              <li>Palawan - Underground Rivers</li>
+            </ul>
+           <a href="http://127.0.0.1:5501/visayas_region.html"> <button class="book-region-btn">Book Visayas Tour</button> </a>
+          </div>
+        </div>
+
+        <!-- Mindanao Card -->
+        <div class="region-card">
+          <div class="region-image">
+            <img src="https://i.pinimg.com/1200x/10/1e/f2/101ef2f4c6aff4565cde95b62fd95c3b.jpg" alt="Mindanao Region">
+          </div>
+          <div class="region-content">
+            <h3>Mindanao</h3>
+            <p>Venture to the southern frontier and experience untouched natural beauty. Mindanao offers exotic adventures with pristine beaches, diverse wildlife, and unique indigenous cultures that remain largely undiscovered by mainstream tourism.</p>
+            <ul class="region-highlights">
+              <li>Davao - Gateway to Mindanao</li>
+              <li>Samal Island - Paradise Beaches</li>
+              <li>Mount Apo - Adventure Hiking</li>
+              <li>Siargao - Surfing Mecca</li>
+            </ul>
+           <a href="http://127.0.0.1:5501/mindanao_region.html"><button class="book-region-btn">Book Mindanao Tour</button></a> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA Section ===== -->
+    <!-- Encourage bookings with call-to-action -->
+    <section class="cta-section">
+      <h2>Ready to Book Your Adventure?</h2>
+      <p>Our travel experts are ready to help you plan the perfect Philippine getaway.</p>
+      <a href="http://127.0.0.1:5501/contact_us.html"><button class="cta-button">Contact Us Today</button></a>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <!-- Site footer with links, contact info, and social media -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <p>PhilTours brings you authentic experiences across the islands of the Philippines.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section footer-quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="philtours_main.html">Home</a></li>
+            <li><a href="philtours_booknow.html">Book Now</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info & Social -->
+        <div class="footer-section footer-contact">
+          <h4>Contact Info</h4>
+          <p class="contact-line">Email: <a href="mailto:info@philtours.com">info@philtours.com</a></p>
+          <p class="contact-line">Phone: <a href="tel:+631234567890">+63 1234 567890</a></p>
+          <div class="socials">
+            <a href="https://www.facebook.com/hnregis" title="Hart Niño Regis" target="_blank" class="social">HNR</a>
+            <a href="https://www.facebook.com/pablojabb69" title="Anthony Jumaya" target="_blank" class="social">AJ</a>
+            <a href="https://www.facebook.com/mark.lourenz.hidalgo.906873" title="Mark Lourenz Hidalgo" target="_blank" class="social">MLH</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Philippine Tours. All rights reserved.</p>
+      </div>
+    </footer>
+</body>
+</html>

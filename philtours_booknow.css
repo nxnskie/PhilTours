@@ -1,0 +1,240 @@
+
+/* ============================================
+   PHILTOURS BOOK NOW STYLESHEET
+   
+   This covers the booking/destination page.
+   Shows 3 region cards to choose from.
+   ============================================ */
+
+/* ===== BOOK NOW HERO SECTION ===== */
+/* Main heading and intro text on booking page */
+.book-hero {
+  text-align: center;
+  padding: 80px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.book-hero h1 {
+  /* Page title */
+  font-size: 48px;
+  color: #cfe7ff;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.5px;
+}
+
+.book-hero p {
+  /* Subtitle/description */
+  font-size: 16px;
+  color: #cdfff8;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ===== REGIONS SECTION ===== */
+/* Container for the 3 region cards */
+.regions-section {
+  padding: 20px 28px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  box-sizing: border-box;
+}
+
+.regions-grid {
+  /* 3-column layout for regions */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* On tablet: 2 columns */
+@media (max-width: 1100px) {
+  .regions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* On mobile: 1 column */
+@media (max-width: 700px) {
+  .regions-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ===== REGION CARD ===== */
+/* Card for each region option */
+.region-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(92, 228, 255, 0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.region-card:hover {
+  /* Lift and shadow on hover */
+  transform: translateY(-12px);
+  box-shadow: 0 14px 40px rgba(92, 228, 255, 0.2);
+  border-color: rgba(92, 228, 255, 0.3);
+}
+
+.region-image {
+  /* Image area at top of card */
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, rgba(92, 228, 255, 0.06), rgba(0, 150, 200, 0.03));
+}
+
+.region-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.region-card:hover .region-image img {
+  /* Zoom image on hover */
+  transform: scale(1.08);
+}
+
+.region-content {
+  /* Text and button area */
+  padding: 28px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.region-content h3 {
+  /* Region name */
+  font-size: 28px;
+  color: #001f3f;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.region-content p {
+  /* Region description */
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+}
+
+/* ===== REGION HIGHLIGHTS ===== */
+/* List of what's in each region */
+.region-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.region-highlights li {
+  font-size: 14px;
+  color: #444444;
+  padding-left: 24px;
+  position: relative;
+  font-weight: 500;
+}
+
+.region-highlights li::before {
+  /* Checkmark before each highlight */
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: rgb(92, 228, 255);
+  font-weight: 700;
+}
+
+/* ===== BOOK REGION BUTTON ===== */
+/* Button to select a region */
+.book-region-btn {
+  background: linear-gradient(135deg, rgb(92, 228, 255) 0%, #00d4ff 50%, #0099ff 100%);
+  color: #ffffff;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(92, 228, 255, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-region-btn::before {
+  /* Shimmer effect on button */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.book-region-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(92, 228, 255, 0.3);
+}
+
+.book-region-btn:hover::before {
+  /* Shimmer animation */
+  left: 100%;
+}
+
+.book-region-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .book-hero {
+    padding: 60px 24px 40px;
+  }
+
+  .book-hero h1 {
+    font-size: 36px;
+  }
+
+  .book-hero p {
+    font-size: 14px;
+  }
+
+  .region-content {
+    padding: 20px;
+  }
+
+  .region-content h3 {
+    font-size: 22px;
+  }
+
+  .region-highlights li {
+    font-size: 13px;
+  }
+}

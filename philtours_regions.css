@@ -1,0 +1,621 @@
+/* ============================================
+   PHILTOURS REGIONS STYLESHEET
+   
+   This stylesheet covers all region pages:
+   - Luzon, Visayas, and Mindanao
+   - Shared navigation and footer styling
+   - Region-specific hero backgrounds
+   ============================================ */
+
+/* ===== NAVIGATION BAR ===== */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  align-items: center;
+  padding: 16px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  background: linear-gradient(90deg, rgba(0, 30, 60, 0.55), rgba(0, 20, 40, 0.45));
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(92, 228, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  box-shadow: 0 6px 24px rgba(92, 228, 255, 0.1);
+}
+
+/* ===== LOGO STYLING ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  height: 56px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(92, 228, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+  filter: drop-shadow(0 4px 8px rgba(92, 228, 255, 0.5));
+}
+
+.logo span {
+  color: rgb(92, 228, 255);
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90deg, rgb(92, 228, 255), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== NAV DIVIDER ===== */
+.nav-divider {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(92, 228, 255, 0.3), transparent);
+}
+
+nav a {
+  color: rgb(92, 228, 255);
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.4px;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(92, 228, 255, 0.6);
+  background: rgba(92, 228, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown menu content (improved hover behavior with gap-filler) */
+.dropdown-content {
+  /* keep in DOM so pointer can move into it without gaps */
+  display: block;
+  position: absolute;
+  top: 100%; /* no overlap; gap-filler ::after handles the safe zone */
+  left: 0;
+  background: linear-gradient(135deg, rgba(0, 30, 80, 0.98), rgba(0, 60, 120, 0.98));
+  min-width: 220px;
+  z-index: 1003;
+  border-radius: 10px;
+  /* larger vertical padding to increase the hover target */
+  padding: 16px 0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(92, 228, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(92, 228, 255, 0.25);
+  margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* disabled until visible */
+  transition: opacity 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) 0.12s,
+              transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) 0.12s;
+  transform: translateY(-6px);
+}
+
+/* Gap-filler: invisible buffer between trigger and menu to keep hover active */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%; /* directly under the trigger */
+  height: 18px; /* invisible safe zone to safely move pointer */
+  pointer-events: auto; /* keep hover active in this region */
+  z-index: 1002; /* just below the dropdown but above other content */
+}
+
+/* Dropdown link styles */
+.dropdown-content a {
+  color: #ffffff;
+  font-size: 15px;
+  padding: 12px 20px;
+  display: block;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+  background: transparent;
+}
+
+.dropdown-content a:hover {
+  background: linear-gradient(90deg, rgba(92, 228, 255, 0.2), transparent);
+  color: #ffffff;
+  padding-left: 24px;
+  border-left-color: rgb(92, 228, 255);
+  box-shadow: inset 4px 0 8px rgba(92, 228, 255, 0.15);
+}
+
+/* Dropdown hover state (show menu with pointer events enabled) */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+/* ===== UNDERLINE HOVER EFFECT ===== */
+/* Animated underline on nav links */
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #83fff5;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== BODY & GLOBAL STYLES ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ddf3ff 0%, #e6f2ff 50%, #f0f8ff 100%);
+  padding-top: 70px;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+body::before {
+  /* Hero pseudo-element: top-half background image */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 50vh;
+  background-attachment: scroll;
+  pointer-events: none;
+  box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 135, 147, 0.567);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Region-specific body backgrounds */
+body.luzon-page::before {
+  /* clearer high-res Banaue terraces (Luzon) */
+  background-image: linear-gradient(rgba(0,0,0,0.44), rgba(0,0,0,0.44)),
+    url("https://images.unsplash.com/photo-1575891467811-70c900ebd3ff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center 25%;
+  background-size: cover;
+}
+
+body.visayas-page::before {
+  /* high-res beach/island (Visayas) - direct Unsplash */
+  background-image: linear-gradient(rgba(0,0,0,0.34), rgba(0,0,0,0.34)),
+    url("https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=2000&q=80");
+  background-position: center 35%;
+  background-size: cover;
+}
+
+body.mindanao-page::before {
+  /* clearer high-res mountains/landscape (Mindanao) */
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=3000&q=80");
+  background-position: center 20%;
+  background-size: cover;
+}
+
+/* ===== PAGE HERO SECTIONS ===== */
+.page-hero {
+  padding: 80px 28px;
+  text-align: center;
+  color: #fff;
+}
+
+.page-hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.page-hero p {
+  font-size: 18px;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+
+
+/* ===== CONTENT SECTION ===== */
+.content-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px 28px;
+  box-sizing: border-box;
+}
+
+/* ===== REGION OVERVIEW ===== */
+.region-overview h2 {
+  position: relative;
+  display: inline-block;
+  color: #001f3f;
+}
+
+.region-overview h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgb(92, 228, 255), transparent);
+  border-radius: 2px;
+}
+
+/* ===== GRID LAYOUT ===== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.overview-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.overview-grid article {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-grid article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.09);
+}
+
+.overview-grid article h3 {
+  margin: 12px 16px 8px;
+  color: #001f3f;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.overview-grid article p {
+  margin: 0 16px 16px;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* ===== OTHER REGIONS SECTION ===== */
+.other-regions {
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.other-regions h2 {
+  position: relative;
+  display: inline-block;
+  color: #001f3f;
+}
+
+.other-regions h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgb(92, 228, 255), transparent);
+  border-radius: 2px;
+}
+
+.region-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.region-link {
+  background: linear-gradient(135deg, rgb(92, 228, 255) 0%, #00d4ff 100%);
+  color: #001f3f;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(92, 228, 255, 0.25);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.region-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.region-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(92, 228, 255, 0.35);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.region-link:hover::before {
+  left: 100%;
+}
+
+.region-link:active {
+  transform: translateY(-2px);
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  text-align: center;
+  padding: 36px 28px 72px;
+}
+
+.cta-section h2 {
+  color: #001f3f;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, rgb(92, 228, 255), #00d4ff);
+  color: #ffffff;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(92, 228, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(92, 228, 255, 0.3);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(180deg, #001826 0%, #002033 100%);
+  color: #e6f7ff;
+  padding: 60px 40px 30px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto 24px;
+}
+
+.footer-section h4 {
+  color: rgb(92, 228, 255);
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  color: #d6f6ff;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-quick-links li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d6f6ff;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.footer-quick-links li a::before {
+  content: '\27A4';
+  color: rgba(92, 228, 255, 0.95);
+  font-size: 14px;
+}
+
+.footer-quick-links li a:hover {
+  background: rgba(92, 228, 255, 0.06);
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+.footer-contact {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.footer-contact .contact-line {
+  color: #d6f6ff;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.footer-contact .contact-line a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-contact .socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.footer-contact .social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  color: #e6f7ff;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.footer-contact .social:hover {
+  background: rgb(92, 228, 255);
+  color: #002033;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(92, 228, 255, 0.18);
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #a0dfff;
+  font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 16px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero h1 {
+    font-size: 36px;
+  }
+
+  .page-hero p {
+    font-size: 16px;
+  }
+
+  nav {
+    padding: 12px 20px;
+    gap: 20px;
+  }
+
+  .region-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .region-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
