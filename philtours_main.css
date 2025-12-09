@@ -1,10 +1,9 @@
-/* ============================================
+/*
    PHILTOURS MAIN STYLESHEET
    
    This is the main style sheet for the homepage.
    It includes the navigation, hero section, 
-   destinations section, and footer.
-   ============================================ */
+   destinations section, and footer.*/
 
    * {
   margin: 0;
@@ -48,13 +47,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* ===== NAV DIVIDER ===== */
-.nav-divider {
-  width: 1px;
-  height: 30px;
-  background: linear-gradient(to bottom, transparent, rgba(92, 228, 255, 0.3), transparent);
 }
 
 nav a {
@@ -736,4 +728,5 @@ body::before {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 16px;
 }
+
 
