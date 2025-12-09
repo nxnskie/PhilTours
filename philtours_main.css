@@ -770,6 +770,7 @@ body::before {
   /* Social media icon container */
   display: flex;
   gap: 10px;
+  padding-top: 10px;
 }
 .footer-contact .social {
   /* Individual social icon button */
