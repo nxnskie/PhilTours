@@ -58,12 +58,6 @@ nav:hover {
   background-clip: text;
 }
 
-/* ===== NAV DIVIDER ===== */
-.nav-divider {
-  width: 1px;
-  height: 30px;
-  background: linear-gradient(to bottom, transparent, rgba(92, 228, 255, 0.3), transparent);
-}
 
 nav a {
   color: rgb(92, 228, 255);
@@ -474,4 +468,5 @@ body.contact-page::before {
     padding: 12px 24px;
   }
 }
+
 
