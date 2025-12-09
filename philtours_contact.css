@@ -271,6 +271,7 @@ body.contact-page::before {
 
 .form-group textarea {
   font-family: 'Poppins', sans-serif;
+  resize: none;
 }
 
 .submit-btn {
