@@ -70,7 +70,7 @@ body.contact-page::before {
 
 .contact-info h2,
 .contact-form-wrapper h2 {
-  color: #001f3f;
+  color: hsl(0, 0%, 100%);
   font-size: 32px;
   margin-bottom: 24px;
   position: relative;
@@ -158,7 +158,7 @@ body.contact-page::before {
 .form-group select {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(92, 228, 255, 0.2);
+  border: 1px solid rgba(220, 249, 255, 0.2);
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
